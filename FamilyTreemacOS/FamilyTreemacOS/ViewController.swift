@@ -10,10 +10,14 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @objc dynamic var family : NSRFamily?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSRDataConstructor.constructFamilyData()
+        NSRDataConstructor.constructFamilyData { (family) in
+            self.family = family
+        }
     }
 
     override var representedObject: Any? {
