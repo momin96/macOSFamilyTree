@@ -11,12 +11,14 @@ import Cocoa
 class ViewController: NSViewController {
 
     @objc dynamic var children : [NSRMember]?
+    @objc dynamic var familyName : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NSRDataConstructor.constructFamilyData { (family) in
             self.children = family?.children
+            self.familyName = family?.name
         }
     }
 

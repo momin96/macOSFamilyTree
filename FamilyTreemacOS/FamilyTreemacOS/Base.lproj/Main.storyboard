@@ -816,6 +816,9 @@
                                 <tableHeaderView key="headerView" id="tXl-dh-FBB">
                                     <rect key="frame" x="0.0" y="0.0" width="406" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <connections>
+                                        <binding destination="XfG-lQ-9wD" name="toolTip" keyPath="familyName" id="j00-EP-KLm"/>
+                                    </connections>
                                 </tableHeaderView>
                             </scrollView>
                         </subviews>
