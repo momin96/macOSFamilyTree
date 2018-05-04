@@ -50,7 +50,7 @@ struct Family: Decodable {
 //        return (children?.sorted())!
         
         return (children?.sorted(by: { (m1, m2) -> Bool in
-            return m1 < m2
+            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == .orderedAscending
         }))!
         
     }
