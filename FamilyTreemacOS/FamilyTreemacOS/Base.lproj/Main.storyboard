@@ -822,7 +822,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="sortChildren:" target="XfG-lQ-9wD" id="aes-nx-kEp"/>
+                                    <action selector="sortChildrenByName:" target="XfG-lQ-9wD" id="vq9-Ub-WhA"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7QR-Ql-kIJ">
@@ -832,7 +832,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="sortChildren:" target="XfG-lQ-9wD" id="r7y-hT-WuL"/>
+                                    <action selector="sortChildrenByAge:" target="XfG-lQ-9wD" id="97z-2q-zt6"/>
                                 </connections>
                             </button>
                         </subviews>
