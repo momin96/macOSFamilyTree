@@ -25,7 +25,10 @@ import Foundation
 struct Member: Decodable, Comparable {
     
     let name: String? // Nasir
-    let age: Int = 0
+    let age: Int = {
+        let n = Int(arc4random_uniform(100))
+        return n
+    }()
 //    let stature: FamilyStature?
     
     static func <(lhs: Member, rhs: Member) -> Bool {
@@ -46,18 +49,17 @@ struct Family: Decodable {
     //    let address: String?
     //    let familyHead: Member?
     
-    func sortFamilyMemberbyName() -> [Member] {
+    func sortFamilyMemberbyName(ascending ascending : Bool) -> [Member] {
 //        return (children?.sorted())!
         
         return (children?.sorted(by: { (m1, m2) -> Bool in
-            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == .orderedAscending
+            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == (ascending ? .orderedAscending : .orderedDescending)
         }))!
-        
     }
     
-    func sortFamilyMemberByAge() -> [Member] {
+    func sortFamilyMemberByAge(ascending ascending : Bool) -> [Member] {
         return (children?.sorted(by: { m1, m2 in
-            return m1.age < m2.age
+            return ascending ? (m1.age < m2.age) : (m1.age > m2.age)
         }))!
     }
     
