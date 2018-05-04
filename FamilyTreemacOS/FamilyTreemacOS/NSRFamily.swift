@@ -8,13 +8,13 @@
 
 import Foundation
 
-class NSRFamily: NSObject {
+@objc class NSRFamily: NSObject {
 
-    var name: String?
-    var address: String?
-    var familyHead: Member?
-    var children: [NSRMember]?
-    var elders: [Member]?
+    @objc dynamic var name: String?
+//    @objc dynamic var address: String?
+//    @objc dynamic var familyHead: NSRMember?
+    @objc dynamic var children: [NSRMember]?
+//    @objc dynamic var elders: [NSRMember]?
     
     
     init(name : String, children: [Member]) {
@@ -40,13 +40,13 @@ class NSRFamily: NSObject {
     
 }
 
-class NSRMember: NSObject {
-    var name: String?
-    var age: Int?
-    var stature: FamilyStature?
+@objc class NSRMember: NSObject {
+    @objc dynamic var name: String?
+    @objc dynamic var age: Int = 0
+//    @objc dynamic var stature: FamilyStature?
     
     
-    init(name: String?, age: Int?) {
+    init(name: String?, age: Int) {
         self.name = name
         self.age = age
     }
