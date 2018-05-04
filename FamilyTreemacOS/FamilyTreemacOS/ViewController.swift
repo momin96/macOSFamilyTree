@@ -55,20 +55,30 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         return nil
     }
 
-    @IBAction func sortChildren(_ sender : NSButton) {
+    @IBAction func sortChildrenByName(_ sender : NSButton) {
+      
+        let ascending : Bool = sender.toggleState == ToggleState.OFF ? false : true
         
-        var sortedChildren = self.family?.children
-        
-        if sender.title == SORT_BY_NAME {
-            sortedChildren = self.family?.sortFamilyMemberbyName()
-        }
-        else if sender.title == SORT_BY_AGE {
-            sortedChildren = self.family?.sortFamilyMemberByAge()
-        }
-
+        let sortedChildren = self.family?.sortFamilyMemberbyName(ascending: ascending)
+  
         self.family?.updateChildren(sortedChildren)
-
+        
         self.familyTableView.reloadData()
+
+        sender.invert()
+    }
+    
+    @IBAction func sortChildrenByAge(_ sender : NSButton) {
+        
+        let ascending : Bool = sender.toggleState == ToggleState.OFF ? false : true
+        
+        let sortedChildren = self.family?.sortFamilyMemberByAge(ascending: ascending)
+        
+        self.family?.updateChildren(sortedChildren)
+        
+        self.familyTableView.reloadData()
+        
+        sender.invert()
     }
 }
 
