@@ -11,7 +11,7 @@ import Foundation
 @objc class NSRFamily: NSObject {
 
     @objc dynamic var name: String?
-//    @objc dynamic var address: String?
+    @objc dynamic var address: String?
 //    @objc dynamic var familyHead: NSRMember?
     @objc dynamic var children: [NSRMember]?
 //    @objc dynamic var elders: [NSRMember]?

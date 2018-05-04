@@ -748,6 +748,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="FS9-2a-zPs" name="value" keyPath="objectValue" id="wfD-FG-NEk"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -781,6 +784,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="cjr-WH-zue" name="value" keyPath="objectValue" id="4hk-Ka-3V2"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -804,9 +810,6 @@
                                 <tableHeaderView key="headerView" id="tXl-dh-FBB">
                                     <rect key="frame" x="0.0" y="0.0" width="462" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <connections>
-                                        <binding destination="XfG-lQ-9wD" name="toolTip" keyPath="familyName" id="j00-EP-KLm"/>
-                                    </connections>
                                 </tableHeaderView>
                             </scrollView>
                         </subviews>
@@ -817,6 +820,9 @@
                             <constraint firstAttribute="bottom" secondItem="wp8-Ux-V7j" secondAttribute="bottom" constant="8" id="xe8-eN-n4t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="familyTableView" destination="1KG-iu-u69" id="jTR-uM-JqN"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

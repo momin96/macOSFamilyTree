@@ -8,26 +8,49 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
-
-    @objc dynamic var children : [NSRMember]?
-    @objc dynamic var familyName : String?
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
     
+    var family : Family?
+    
+    @IBOutlet weak var familyTableView: NSTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.familyTableView.dataSource = self
+        self.familyTableView.delegate = self
+        
         NSRDataConstructor.constructFamilyData { (family) in
-            self.children = family?.children
-            self.familyName = family?.name
+            self.family = family
+            OperationQueue.main.addOperation({
+                self.familyTableView.reloadData()
+            })
         }
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        if let f = self.family, let c = f.children {
+            return c.count
         }
+        return 0
     }
-
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        
+        if let children = self.family?.children  {
+            let child = children[row]
+            let name = child.name
+            let age = child.age
+        
+            if tableColumn == tableView.tableColumns[0] {
+                return name
+            }
+            else if tableColumn == tableView.tableColumns[1] {
+                return age
+            }
+        }
+        
+        return nil
+    }
 
 }
 

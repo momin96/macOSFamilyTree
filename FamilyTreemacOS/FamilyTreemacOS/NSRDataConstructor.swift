@@ -39,7 +39,7 @@ struct Family: Decodable {
 
 class NSRDataConstructor: NSObject {
     
-    class func constructFamilyData (_ onCompletion: @escaping (NSRFamily?) -> Void) {
+    class func constructFamilyData (_ onCompletion: @escaping (Family?) -> Void) {
         NSRDataFetcher.shared.getRequestData { (data, response, err) in
             print(data!)
             guard let data = data else {
@@ -59,14 +59,15 @@ class NSRDataConstructor: NSObject {
                     let decoder = JSONDecoder()
                     let family = try decoder.decode(Family.self, from: data)
                     print(family as Any)
-                    
-                    if let n = family.name, let c = family.children {
-                        let family = NSRFamily(name: n, children: c)
-                        onCompletion(family)
-                    }
-                    else {
-                        onCompletion(nil)
-                    }
+                    onCompletion(family)
+
+//                    if let n = family.name, let c = family.children {
+//                        let family = NSRFamily(name: n, children: c)
+//                        onCompletion(family)
+//                    }
+//                    else {
+//                        onCompletion(nil)
+//                    }
                 }
                 catch let err {
                     print("Error \(err)")
