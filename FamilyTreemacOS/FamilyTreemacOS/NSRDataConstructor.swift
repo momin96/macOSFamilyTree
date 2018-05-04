@@ -22,18 +22,49 @@ import Foundation
 //    case Other          = "Other"
 //}
 
-struct Member: Decodable {
+struct Member: Decodable, Comparable {
+    
     let name: String? // Nasir
     let age: Int = 0
 //    let stature: FamilyStature?
+    
+    static func <(lhs: Member, rhs: Member) -> Bool {
+        return lhs.name?.localizedCaseInsensitiveCompare(rhs.name!) == .orderedAscending
+    }
+    
+    static func ==(lhs: Member, rhs: Member) -> Bool {
+        return lhs == rhs
+    }
+    
 }
 
 struct Family: Decodable {
     let name: String?
-//    let address: String?
-//    let familyHead: Member?
-    let children: [Member]?
-//    let elders: [Member]?
+    var children: [Member]?
+
+    //    let elders: [Member]?
+    //    let address: String?
+    //    let familyHead: Member?
+    
+    func sortFamilyMemberbyName() -> [Member] {
+//        return (children?.sorted())!
+        
+        return (children?.sorted(by: { (m1, m2) -> Bool in
+            return m1 < m2
+        }))!
+        
+    }
+    
+    func sortFamilyMemberByAge() -> [Member] {
+        return (children?.sorted(by: { m1, m2 in
+            return m1.age < m2.age
+        }))!
+    }
+    
+    mutating func updateChildren(_ children: [Member]?) {
+        self.children = children
+    }
+    
 }
 
 

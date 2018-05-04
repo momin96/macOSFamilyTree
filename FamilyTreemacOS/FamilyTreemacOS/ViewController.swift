@@ -6,6 +6,9 @@
 //  Copyright © 2018 Nasir Ahmed Momin. All rights reserved.
 //
 
+let SORT_BY_NAME    = "Sort By Name"
+let SORT_BY_AGE     = "Sort By Age"
+
 import Cocoa
 
 class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
@@ -52,5 +55,20 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         return nil
     }
 
+    @IBAction func sortChildren(_ sender : NSButton) {
+        
+        var sortedChildren = self.family?.children
+        
+        if sender.title == SORT_BY_NAME {
+            sortedChildren = self.family?.sortFamilyMemberbyName()
+        }
+        else if sender.title == SORT_BY_AGE {
+            sortedChildren = self.family?.sortFamilyMemberByAge()
+        }
+
+        self.family?.updateChildren(sortedChildren)
+
+        self.familyTableView.reloadData()
+    }
 }
 
