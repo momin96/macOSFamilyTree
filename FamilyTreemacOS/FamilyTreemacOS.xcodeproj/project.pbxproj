@@ -15,6 +15,7 @@
 		0EB20E35209C10290053FEAB /* NSRDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB20E34209C10290053FEAB /* NSRDataFetcher.swift */; };
 		0EB20E37209C112F0053FEAB /* NSRFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB20E36209C112F0053FEAB /* NSRFamily.swift */; };
 		0EB20E39209C117B0053FEAB /* NSRDataConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB20E38209C117B0053FEAB /* NSRDataConstructor.swift */; };
+		0EB20E3B209C70D50053FEAB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB20E3A209C70D50053FEAB /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		0EB20E34209C10290053FEAB /* NSRDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRDataFetcher.swift; sourceTree = "<group>"; };
 		0EB20E36209C112F0053FEAB /* NSRFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRFamily.swift; sourceTree = "<group>"; };
 		0EB20E38209C117B0053FEAB /* NSRDataConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRDataConstructor.swift; sourceTree = "<group>"; };
+		0EB20E3A209C70D50053FEAB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				0EB20E36209C112F0053FEAB /* NSRFamily.swift */,
 				0EB20E34209C10290053FEAB /* NSRDataFetcher.swift */,
 				0EB20E38209C117B0053FEAB /* NSRDataConstructor.swift */,
+				0EB20E3A209C70D50053FEAB /* Extensions.swift */,
 				0EB20E1A209C0FE70053FEAB /* Assets.xcassets */,
 				0EB20E1C209C0FE70053FEAB /* Main.storyboard */,
 				0EB20E1F209C0FE70053FEAB /* Info.plist */,
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB20E19209C0FE70053FEAB /* ViewController.swift in Sources */,
+				0EB20E3B209C70D50053FEAB /* Extensions.swift in Sources */,
 				0EB20E39209C117B0053FEAB /* NSRDataConstructor.swift in Sources */,
 				0EB20E17209C0FE70053FEAB /* AppDelegate.swift in Sources */,
 				0EB20E35209C10290053FEAB /* NSRDataFetcher.swift in Sources */,
