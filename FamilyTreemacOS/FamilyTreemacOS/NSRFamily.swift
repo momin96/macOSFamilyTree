@@ -9,6 +9,67 @@
 import Foundation
 
 
+//enum FamilyStature: String, Decodable {
+//    case GrandFather    = "Grand Father"
+//    case GrandMother    = "Grand Mother"
+//    case Father         = "Father"
+//    case Mother         = "Mother"
+//    case Son            = "Son"
+//    case Dauther        = "Dauther"
+//    case SonInLaw       = "Son In Law"
+//    case DautherInLaw   = "Dauther In Law"
+//    case Cousin         = "Cousin"
+//    case Friend         = "Friend"
+//    case Other          = "Other"
+//}
+
+struct Member: Decodable, Comparable {
+    
+    let name: String? // Nasir
+    let age: Int = {
+        let n = Int(arc4random_uniform(100))
+        return n
+    }()
+    //    let stature: FamilyStature?
+    
+    static func <(lhs: Member, rhs: Member) -> Bool {
+        return lhs.name?.localizedCaseInsensitiveCompare(rhs.name!) == .orderedAscending
+    }
+    
+    static func ==(lhs: Member, rhs: Member) -> Bool {
+        return lhs == rhs
+    }
+    
+}
+
+struct Family: Decodable {
+    let name: String?
+    var children: [Member]?
+    
+    //    let elders: [Member]?
+    //    let address: String?
+    //    let familyHead: Member?
+    
+    func sortFamilyMemberbyName(ascending isAscending : Bool) -> [Member] {
+        //        return (children?.sorted())!
+        
+        return (children?.sorted(by: { (m1, m2) -> Bool in
+            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == (isAscending ? .orderedAscending : .orderedDescending)
+        }))!
+    }
+    
+    func sortFamilyMemberByAge(ascending isAscending : Bool) -> [Member] {
+        return (children?.sorted(by: { m1, m2 in
+            return isAscending ? (m1.age < m2.age) : (m1.age > m2.age)
+        }))!
+    }
+    
+    mutating func updateChildren(_ children: [Member]?) {
+        self.children = children
+    }
+}
+
+
 // NSRFamily was intendent to use for Cocoa bindings
 
 //@objc class NSRFamily: NSObject {
