@@ -38,14 +38,6 @@ class NSRDataConstructor: NSObject {
                     let family = try decoder.decode(Family.self, from: data)
                     print(family as Any)
                     onCompletion(family)
-
-//                    if let n = family.name, let c = family.children {
-//                        let family = NSRFamily(name: n, children: c)
-//                        onCompletion(family)
-//                    }
-//                    else {
-//                        onCompletion(nil)
-//                    }
                 }
                 catch let err {
                     print("Error \(err)")
