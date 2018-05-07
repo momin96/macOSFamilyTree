@@ -8,8 +8,15 @@
 
 import Foundation
 
+/// A class reponsible for parsing & constructing data into model (Family) object
 class NSRDataConstructor: NSObject {
     
+    /**
+     Constructs Family data by initiating get request call to http API
+     
+     - Parameter onCompletion : Family model object
+     - Parameter family : Model layer consist of family data that need to be displayed on UI
+     */
     class func constructFamilyData (_ onCompletion: @escaping (Family?) -> Void) {
         NSRDataFetcher.shared.getRequestData { (data, response, err) in
             print(data!)
