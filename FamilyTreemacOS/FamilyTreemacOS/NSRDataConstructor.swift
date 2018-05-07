@@ -49,17 +49,17 @@ struct Family: Decodable {
     //    let address: String?
     //    let familyHead: Member?
     
-    func sortFamilyMemberbyName(ascending ascending : Bool) -> [Member] {
+    func sortFamilyMemberbyName(ascending isAscending : Bool) -> [Member] {
 //        return (children?.sorted())!
         
         return (children?.sorted(by: { (m1, m2) -> Bool in
-            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == (ascending ? .orderedAscending : .orderedDescending)
+            return m1.name?.localizedCaseInsensitiveCompare(m2.name!) == (isAscending ? .orderedAscending : .orderedDescending)
         }))!
     }
     
-    func sortFamilyMemberByAge(ascending ascending : Bool) -> [Member] {
+    func sortFamilyMemberByAge(ascending isAscending : Bool) -> [Member] {
         return (children?.sorted(by: { m1, m2 in
-            return ascending ? (m1.age < m2.age) : (m1.age > m2.age)
+            return isAscending ? (m1.age < m2.age) : (m1.age > m2.age)
         }))!
     }
     
