@@ -8,21 +8,17 @@
 
 import Foundation
 
-
-//enum FamilyStature: String, Decodable {
-//    case GrandFather    = "Grand Father"
-//    case GrandMother    = "Grand Mother"
-//    case Father         = "Father"
-//    case Mother         = "Mother"
-//    case Son            = "Son"
-//    case Dauther        = "Dauther"
-//    case SonInLaw       = "Son In Law"
-//    case DautherInLaw   = "Dauther In Law"
-//    case Cousin         = "Cousin"
-//    case Friend         = "Friend"
-//    case Other          = "Other"
-//}
-
+/**
+ Model object responsible for holding family member's information
+ 
+ - Attention:
+ Conforms to Decodable & Comparable protocol.
+ 
+ - Remark:
+ 1. Decodable parses json data into app's model with Swift's new features,
+ 2. Comparable to sort family member by their name & age
+ 
+ */
 struct Member: Decodable, Comparable {
     
     let name: String? // Nasir
@@ -42,14 +38,28 @@ struct Member: Decodable, Comparable {
     
 }
 
+/**
+ Model object responsible for holding individual family's high level information.
+ 
+ - Remark: Decodable parses json data into app's model with Swift's new features,
+ 
+ */
 struct Family: Decodable {
+
+    /// Name of family
     let name: String?
+    
+    /// Children in family
     var children: [Member]?
     
     //    let elders: [Member]?
     //    let address: String?
     //    let familyHead: Member?
     
+    /**
+     Sort Family members by their names
+     - Parameter isAscending: Boolean value indicating order of sort
+     */
     func sortFamilyMemberbyName(ascending isAscending : Bool) -> [Member] {
         //        return (children?.sorted())!
         
@@ -58,16 +68,47 @@ struct Family: Decodable {
         }))!
     }
     
+    /**
+     Sort Family members by their ages
+     - Parameter isAscending: Boolean value indicating order of sort
+     */
     func sortFamilyMemberByAge(ascending isAscending : Bool) -> [Member] {
         return (children?.sorted(by: { m1, m2 in
             return isAscending ? (m1.age < m2.age) : (m1.age > m2.age)
         }))!
     }
     
+    /**
+     Public method to update children in Family
+     - Parameter children: Array of children that need to be update in Family
+     */
     mutating func updateChildren(_ children: [Member]?) {
         self.children = children
     }
 }
+
+
+
+
+
+
+
+
+
+
+//enum FamilyStature: String, Decodable {
+//    case GrandFather    = "Grand Father"
+//    case GrandMother    = "Grand Mother"
+//    case Father         = "Father"
+//    case Mother         = "Mother"
+//    case Son            = "Son"
+//    case Dauther        = "Dauther"
+//    case SonInLaw       = "Son In Law"
+//    case DautherInLaw   = "Dauther In Law"
+//    case Cousin         = "Cousin"
+//    case Friend         = "Friend"
+//    case Other          = "Other"
+//}
 
 
 // NSRFamily was intendent to use for Cocoa bindings
